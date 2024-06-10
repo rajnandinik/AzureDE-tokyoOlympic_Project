@@ -1,0 +1,17 @@
+{
+	"name": "SQL script 1",
+	"properties": {
+		"content": {
+			"query": "--Calculate total atheletes from each country\nSELECT Country, COUNT(*) as totalAthletes\n from athletes\n GROUP by Country\n ORDER by totalAthletes DESC;\n\n --Calculate the total medals won by each country\n select Team_country,\n sum(Gold) total_gold,\n sum(Silver) total_silver,\n sum(bronze) total_bronze\n from medal \nGROUP by team_country\nORDER by total_gold DESC;\n\n\n--calculate the average number of entries by gender for each discipline\nSELECT Discipline,\nAVG(female) avg_female,\nAvg(male) avg_male\n from entriesGender\n GROUP by Discipline;\n\n",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"databaseName": "tokyoOlympicDB",
+				"poolName": "Built-in"
+			},
+			"resultLimit": 5000
+		},
+		"type": "SqlQuery"
+	}
+}
